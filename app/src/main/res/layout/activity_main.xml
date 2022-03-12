@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer_layout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:theme="@style/Theme.MusicMe"
+    tools:openDrawer="start"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/abl_ma"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_main_activity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:title="MusicMe"
+                android:background="@color/cool_blue"
+                app:titleTextColor="@color/white"
+                app:popupTheme="@style/AppTheme.PopUpOverlay">
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:layout_marginTop="50dp"
+            app:layout_constraintTop_toBottomOf="@id/abl_ma"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_shuffle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:drawableTop="@drawable/icon_shuffle_24"
+                    android:text="@string/btn_shuffle"
+                    android:textColor="@color/black"/>
+
+                <Button
+                    android:id="@+id/btn_fav"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:drawableTop="@drawable/icon_favorites_24"
+                    android:text="@string/btn_fav"
+                    android:textColor="@color/black"/>
+
+                <Button
+                    android:id="@+id/btn_playlist"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:drawableTop="@drawable/icon_playlist_24"
+                    android:text="@string/btn_playlist"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_total_songs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/total_songs"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_music_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"
+                android:scrollbarThumbVertical="@drawable/icon_scroll_bar"/>
+
+        </LinearLayout>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/frag_now_playing"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:name="com.srivastava.musicme.NowPlayingFragment"
+            tools:layout="@layout/fragment_now_playing"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/nav_menu"
+        android:fitsSystemWindows="false"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:id="@+id/fragment_now_playing"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".NowPlayingFragment"
+    android:background="@color/cool_pink">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/siv_song_icon_fnp"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="5dp"
+        app:shapeAppearanceOverlay="@style/curved"
+        android:src="@mipmap/ic_launcher_round"/>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/btn_next_fnp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        app:icon="@drawable/icon_next_24"
+        app:iconTint="@color/white"
+        android:backgroundTint="@color/cool_pink"
+        android:layout_centerVertical="true"
+        app:iconSize="40dp"
+        android:layout_marginEnd="10dp"/>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/btn_play_pause_fnp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/icon_play_24"
+        app:iconTint="@color/white"
+        android:backgroundTint="@color/cool_pink"
+        android:layout_centerVertical="true"
+        app:iconSize="40dp"
+        android:layout_toStartOf="@id/btn_next_fnp"
+        android:layout_marginHorizontal="5dp"/>
+
+    <TextView
+        android:id="@+id/tv_song_name_fnp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Song Name"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:layout_toStartOf="@+id/btn_play_pause_fnp"
+        android:layout_toEndOf="@id/siv_song_icon_fnp"/>
+
+</RelativeLayout>
